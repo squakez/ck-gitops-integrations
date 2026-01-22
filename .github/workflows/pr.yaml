@@ -1,0 +1,35 @@
+# name: Auto PR from cicd to main
+
+# on:
+#   push:
+#     branches:
+#       - cicd
+
+# concurrency:
+#   group: "auto-pr-cicd-main"
+#   cancel-in-progress: true
+
+# jobs:
+#   create_pull_request:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
+#         with:
+#             token: ${{ secrets.GITHUB_TOKEN }}
+#             fetch-depth: 0
+#             ref: cicd
+
+#       - name: Create Pull Request
+#         uses: peter-evans/create-pull-request@v5
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           commit-message: "Automated PR from cicd branch"
+#           branch: "cicd"
+#           base: main
+#           title: "feat(ci): new deployment ready"
+#           body: |
+#             Camel K operator wants to add or update one Integration. Please, review and if okey, merge
+#             to make it start the production workflow!
+#           draft: false
