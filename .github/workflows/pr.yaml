@@ -1,0 +1,25 @@
+name: Create main promotion pull request
+on:
+  push:
+    branches:
+      - cicd
+
+concurrency:
+  group: "auto-pr-cicd-main"
+  cancel-in-progress: false
+
+jobs:
+  productionPromotion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - name: Reset promotion branch
+        run: |
+          git fetch origin cicd:cicd
+          git reset --hard cicd
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v8
+        with:
+          branch: main-promotion
