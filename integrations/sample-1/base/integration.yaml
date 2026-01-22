@@ -1,0 +1,27 @@
+apiVersion: camel.apache.org/v1
+kind: Integration
+metadata:
+  name: sample-1
+spec:
+  flows:
+  - route:
+      from:
+        parameters:
+          period: "1000"
+        steps:
+        - setBody:
+            simple: Hello Camel from ${routeId}
+        - log: ${body}
+        uri: timer:yaml
+  replicas: 1
+  traits:
+    builder:
+      properties:
+      - a=1
+    camel:
+      runtimeVersion: 3.15.3
+    container:
+      image: 10.110.254.179/dev/camel-k-kit-d5p5n3l3574c73dtp3o0@sha256:6a40a9311b5f3d86e093a57a90ecbb48c94076cad6fad9d20fdaed2c6c0c254f
+    jvm:
+      classpath: dependencies/*:dependencies/app/*:dependencies/lib/boot/*:dependencies/lib/main/*:dependencies/quarkus/*
+status: {}
