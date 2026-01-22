@@ -17,11 +17,11 @@ spec:
   traits:
     builder:
       properties:
-      - a=1
+      - a=2
     camel:
       runtimeVersion: 3.15.3
     container:
-      image: 10.110.254.179/dev/camel-k-kit-d5p5n3l3574c73dtp3o0@sha256:6a40a9311b5f3d86e093a57a90ecbb48c94076cad6fad9d20fdaed2c6c0c254f
+      image: 10.110.254.179/dev/camel-k-kit-d5p6cdl3574c73dtp3sg@sha256:18fa92e15d16002358c0e7083b13babef8d848986a7ee952b76ac4b167996d4e
     jvm:
       classpath: dependencies/*:dependencies/app/*:dependencies/lib/boot/*:dependencies/lib/main/*:dependencies/quarkus/*
 status: {}
