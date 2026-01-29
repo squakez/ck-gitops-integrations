@@ -7,21 +7,26 @@ spec:
   - route:
       from:
         parameters:
-          period: "1000"
+          period: 30000
         steps:
         - setBody:
-            simple: Hello Camel from ${routeId}
+            simple: Hello Camel from {{my.env}} - {{my.property}}
         - log: ${body}
         uri: timer:yaml
   replicas: 1
   traits:
-    builder:
-      properties:
-      - a=2
     camel:
-      runtimeVersion: 3.15.3
+      properties:
+      - my.property=Camel K - sample 1 in action!
+      runtimeProvider: plain-quarkus
+      runtimeVersion: 3.20.4
     container:
-      image: 10.110.254.179/dev/camel-k-kit-d5p6cdl3574c73dtp3sg@sha256:18fa92e15d16002358c0e7083b13babef8d848986a7ee952b76ac4b167996d4e
+      image: 10.110.254.179/dev/camel-k-kit-d5tp1tdts82s738mqbt0@sha256:e76cb41a4f11899d37b815a857e750bae41adfe8e169afb36227f80e9fcf48f4
+      limitCPU: 250m
+      limitMemory: 256Mi
     jvm:
       classpath: dependencies/*:dependencies/app/*:dependencies/lib/boot/*:dependencies/lib/main/*:dependencies/quarkus/*
+    mount:
+      configs:
+      - configmap:my-cm
 status: {}
