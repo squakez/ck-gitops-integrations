@@ -1,0 +1,9 @@
+- route:
+    from:
+      parameters:
+        period: 30000
+      steps:
+      - setBody:
+          simple: Hello Camel from {{my.env}} - {{my.property}}
+      - log: ${body}
+      uri: timer:yaml
