@@ -19,9 +19,9 @@ spec:
       properties:
       - my.property=Camel K - sample 1 in action!
       runtimeProvider: plain-quarkus
-      runtimeVersion: 3.20.4
+      runtimeVersion: 3.27.2
     container:
-      image: 10.104.35.69/dev/camel-k-kit-d62b3llas3uc73d2brb0@sha256:417371627f78b93493b86f7eceeb5c3e219a60392582453a19b48452949c2a2e
+      image: 10.104.35.69/dev/camel-k-kit-d62blllas3uc73d2brd0@sha256:25299794ec8c28f63dcb88a1f92df4d816644801db5c6ef592360f6a8042f635
       limitCPU: 250m
       limitMemory: 256Mi
     jvm:
