@@ -1,0 +1,16 @@
+apiVersion: camel.apache.org/v1
+kind: Integration
+metadata:
+  name: sample-2
+spec:
+  traits:
+    camel:
+      properties:
+      - my.property=Camel K - sample 2 in action!
+    container:
+      limitCPU: 250m
+      limitMemory: 256Mi
+    mount:
+      configs:
+      - configmap:my-cm
+status: {}

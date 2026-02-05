@@ -3,3 +3,4 @@ kind: Kustomization
 namespace: prod
 resources:
 - ../../../sample-1/overlays/prod/
+- ../../../sample-2/overlays/prod/
